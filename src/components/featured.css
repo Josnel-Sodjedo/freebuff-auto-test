@@ -1,0 +1,129 @@
+.feat {
+  height: 340vh;
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.feat__pin {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: clip;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Fond quasi fixe */
+.feat__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  will-change: transform;
+}
+.feat__word {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(10rem, 30vw, 30rem);
+  white-space: nowrap;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.feat__aurora {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 55% at 68% 50%, rgba(255, 77, 0, 0.13), transparent 62%),
+    radial-gradient(ellipse 50% 40% at 25% 30%, rgba(233, 228, 218, 0.05), transparent 60%);
+}
+
+.feat__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+/* Texte */
+.feat__kicker {
+  margin-bottom: 1.6rem;
+}
+.feat__title {
+  font-size: clamp(3.4rem, 9vw, 10rem);
+  line-height: 0.95;
+  will-change: transform;
+}
+.feat__period {
+  color: var(--accent);
+}
+.feat__tagline {
+  margin-top: 1.4rem;
+  font-size: clamp(1.3rem, 2.4vw, 2rem);
+  color: var(--ink);
+  max-width: 22ch;
+}
+
+/* Composition visuelle */
+.feat__art {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  max-height: 78vh;
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--line-soft);
+  background: var(--bg-2);
+  will-change: transform;
+}
+
+.feat__chip {
+  position: absolute;
+  z-index: 3;
+}
+.feat__chip--1 {
+  top: 1.4rem;
+  left: 1.4rem;
+}
+.feat__chip--2 {
+  bottom: 1.4rem;
+  right: 1.4rem;
+}
+
+/* Labels qui se déplacent */
+.feat__labels {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2.4rem;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.64rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .feat__grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-content: center;
+  }
+  .feat__art {
+    max-height: 52vh;
+  }
+  .feat__title {
+    font-size: clamp(3rem, 13vw, 5.5rem);
+  }
+  .feat__labels {
+    display: none;
+  }
+  .feat {
+    height: 300vh;
+  }
+}

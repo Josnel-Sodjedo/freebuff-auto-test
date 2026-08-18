@@ -1,0 +1,144 @@
+.about__title {
+  font-size: clamp(2.2rem, 5.6vw, 5.8rem);
+  max-width: 18ch;
+  margin-top: 2.2rem;
+}
+.about__title-line {
+  display: block;
+}
+.about__title-line--2 {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(233, 228, 218, 0.55);
+}
+
+.about__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(2.5rem, 6vw, 6rem);
+  margin-top: clamp(3rem, 7vh, 5rem);
+  align-items: start;
+}
+
+.about__text {
+  color: var(--muted);
+  font-weight: 300;
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.8;
+  max-width: 52ch;
+  margin-top: 2rem;
+}
+.about__text strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+.about__sign {
+  margin-top: 2.2rem;
+  font-size: 1.4rem;
+  color: var(--ink);
+}
+
+/* Portrait abstrait */
+.about__portrait {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--line-soft);
+  border-radius: 4px;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 30%, #1b1a20, #0c0c10 70%);
+}
+.about__portrait-ring {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  width: 62%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px solid rgba(233, 228, 218, 0.2);
+}
+.about__portrait-ring::after {
+  content: '';
+  position: absolute;
+  inset: 16%;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 77, 0, 0.5);
+  animation: spin 30s linear infinite;
+}
+.about__portrait-core {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(3.4rem, 7vw, 6rem);
+  color: var(--paper);
+  text-align: center;
+  line-height: 1;
+}
+.about__portrait-core span {
+  display: block;
+  font-size: 0.16em;
+  letter-spacing: 0.5em;
+  color: var(--accent);
+  margin-top: 0.6rem;
+  text-indent: 0.5em;
+}
+.about__portrait-caption {
+  position: absolute;
+  left: 1.2rem;
+  bottom: 1.1rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Statistiques */
+.about__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: clamp(3rem, 7vh, 5.5rem);
+  border-top: 1px solid var(--line);
+}
+.about__stat {
+  padding: 2.4rem 1.6rem 2.4rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.about__stat:nth-child(odd) {
+  border-right: 1px solid var(--line);
+  padding-left: 0;
+  padding-right: 2.4rem;
+}
+.about__stat:nth-child(even) {
+  padding-left: 2.4rem;
+}
+.about__stat-num {
+  font-size: clamp(3.4rem, 7.5vw, 7rem);
+  line-height: 0.95;
+  font-variant-numeric: tabular-nums;
+}
+.about__stat-num em {
+  font-style: normal;
+  color: var(--accent);
+}
+.about__stat-label {
+  margin-top: 0.9rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .about__grid {
+    grid-template-columns: 1fr;
+  }
+  .about__stats {
+    grid-template-columns: 1fr 1fr;
+  }
+  .about__stat:nth-child(odd) {
+    padding-right: 1.2rem;
+  }
+  .about__stat:nth-child(even) {
+    padding-left: 1.2rem;
+  }
+}

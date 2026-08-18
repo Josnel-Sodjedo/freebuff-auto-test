@@ -1,0 +1,227 @@
+.exp-head {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  margin-bottom: clamp(2.5rem, 6vh, 4rem);
+}
+.exp-head__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.exp-head__title {
+  font-size: clamp(2.6rem, 7vw, 8rem);
+}
+.exp-head__sub {
+  font-size: clamp(1.3rem, 2.2vw, 1.9rem);
+  color: var(--muted);
+  max-width: 30ch;
+  text-align: right;
+}
+
+.exp-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.4rem;
+}
+
+.exp {
+  border: 1px solid var(--line-soft);
+  border-radius: 4px;
+  background: linear-gradient(180deg, rgba(233, 228, 218, 0.025), transparent 70%);
+  transition: border-color 0.4s var(--ease-out), transform 0.5s var(--ease-out);
+}
+.exp:hover {
+  border-color: rgba(255, 77, 0, 0.4);
+  transform: translateY(-4px);
+}
+.exp--a {
+  grid-column: span 7;
+}
+.exp--b {
+  grid-column: span 5;
+}
+.exp--c {
+  grid-column: span 5;
+}
+.exp--d {
+  grid-column: span 7;
+}
+.exp--e {
+  grid-column: span 12;
+}
+
+.exp__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.3rem;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 0.64rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.exp__num {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.exp__body {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+}
+
+/* ---------- Exp 01 : typographie vivante ---------- */
+.exp-typo {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.04em;
+  cursor: crosshair;
+}
+.exp-typo__letter {
+  display: inline-block;
+  font-size: clamp(3rem, 9vw, 6.5rem);
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 1;
+  will-change: transform;
+}
+.exp-typo__letter:nth-child(even) {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--ink);
+}
+.exp-typo__letter:nth-child(odd) {
+  color: var(--paper);
+}
+
+/* ---------- Exp 02 : grille élastique ---------- */
+.exp-grid-2 {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+}
+
+/* ---------- Exp 03 : formes en apesanteur ---------- */
+.exp-orbs {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  cursor: crosshair;
+}
+.exp-orbs__orb {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  filter: blur(28px);
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+.exp-orbs__orb--1 {
+  width: 190px;
+  height: 190px;
+  margin: -95px 0 0 -95px;
+  background: radial-gradient(circle, rgba(255, 77, 0, 0.5), transparent 65%);
+}
+.exp-orbs__orb--2 {
+  width: 130px;
+  height: 130px;
+  margin: -65px 0 0 -65px;
+  background: radial-gradient(circle, rgba(233, 228, 218, 0.32), transparent 65%);
+}
+.exp-orbs__ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 240px;
+  height: 240px;
+  margin: -120px 0 0 -120px;
+  border: 1px solid rgba(233, 228, 218, 0.3);
+  border-radius: 50%;
+  will-change: transform;
+}
+.exp-orbs__dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 18px rgba(255, 77, 0, 0.8);
+  will-change: transform;
+}
+
+/* ---------- Exp 04 : texte progressif ---------- */
+.exp-text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 2.4rem;
+  font-size: clamp(1.15rem, 2.2vw, 1.7rem);
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+/* ---------- Exp 05 : composition générative ---------- */
+.exp-gen {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.exp-gen svg {
+  width: 100%;
+  height: 100%;
+}
+.exp-gen__hint {
+  position: absolute;
+  bottom: 1.2rem;
+  right: 1.4rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.exp-gen__hint svg {
+  width: 0.85em;
+  height: 0.85em;
+  fill: currentColor;
+  stroke-width: 0;
+}
+
+@media (max-width: 900px) {
+  .exp--a,
+  .exp--b,
+  .exp--c,
+  .exp--d,
+  .exp--e {
+    grid-column: span 12;
+  }
+  .exp-head__sub {
+    text-align: left;
+  }
+  .exp__body {
+    height: 220px;
+  }
+  .exp-head__title {
+    font-size: clamp(1.8rem, 8.5vw, 9rem);
+  }
+}

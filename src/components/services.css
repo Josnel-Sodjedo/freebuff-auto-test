@@ -1,0 +1,92 @@
+.services__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: clamp(2.5rem, 6vh, 4rem);
+}
+.services__title {
+  font-size: clamp(3rem, 9vw, 9rem);
+}
+
+.services__list {
+  border-bottom: 1px solid var(--line);
+}
+
+.svc__row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr) minmax(0, 0.9fr) auto;
+  align-items: center;
+  gap: 2rem;
+  padding: 2.3rem 0;
+  border-top: 1px solid var(--line);
+  transition: padding-left 0.45s var(--ease-out), background 0.45s var(--ease-out);
+}
+.svc__row:hover {
+  padding-left: 1.4rem;
+  background: linear-gradient(90deg, rgba(255, 77, 0, 0.05), transparent 60%);
+}
+
+.svc__num {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  transition: color 0.3s var(--ease-out);
+}
+.svc__row:hover .svc__num {
+  color: var(--accent);
+}
+
+.svc__title {
+  font-size: clamp(1.7rem, 3.8vw, 3.3rem);
+  letter-spacing: -0.01em;
+  transition: transform 0.5s var(--ease-out), color 0.35s var(--ease-out);
+  will-change: transform;
+}
+.svc__row:hover .svc__title {
+  transform: translateX(18px);
+  color: var(--accent);
+  font-family: var(--font-serif);
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.svc__desc {
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-weight: 300;
+  max-width: 34ch;
+  transition: opacity 0.35s var(--ease-out), transform 0.45s var(--ease-out);
+}
+.svc__row:hover .svc__desc {
+  opacity: 0.75;
+  transform: translateX(8px);
+}
+
+.svc__arrow {
+  display: inline-flex;
+  font-size: 1.1rem;
+  color: var(--muted);
+  transition: transform 0.4s var(--ease-out), color 0.3s var(--ease-out);
+}
+.svc__arrow svg {
+  width: 1em;
+  height: 1em;
+}
+.svc__row:hover .svc__arrow {
+  transform: translate(4px, -4px) rotate(45deg);
+  color: var(--accent);
+}
+
+@media (max-width: 860px) {
+  .svc__row {
+    grid-template-columns: 3rem 1fr auto;
+    gap: 1.2rem;
+  }
+  .svc__desc {
+    display: none;
+  }
+}

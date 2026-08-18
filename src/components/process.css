@@ -1,0 +1,117 @@
+.process {
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.process__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: clamp(2.5rem, 6vh, 4rem);
+}
+.process__title {
+  font-size: clamp(3rem, 9vw, 9rem);
+}
+
+.process__viewport {
+  overflow: hidden;
+}
+.process__track {
+  display: flex;
+  align-items: stretch;
+  gap: 2rem;
+  width: max-content;
+  padding-right: 12vw;
+  will-change: transform;
+}
+
+.process__step {
+  position: relative;
+  width: min(68vw, 620px);
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.4rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 4px;
+  background: linear-gradient(180deg, rgba(233, 228, 218, 0.03), transparent 70%);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.process__step-num {
+  font-size: clamp(3.4rem, 6vw, 5.5rem);
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(233, 228, 218, 0.3);
+  line-height: 1;
+}
+.process__step-body {
+  margin-top: 3rem;
+}
+.process__step-title {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+}
+.process__step-desc {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-weight: 300;
+  max-width: 42ch;
+}
+.process__step-meta {
+  margin-top: 2.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.64rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.process__step-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 16px rgba(255, 77, 0, 0.7);
+}
+.process__step-glow {
+  position: absolute;
+  right: -70px;
+  top: -70px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 77, 0, 0.14), transparent 65%);
+  pointer-events: none;
+}
+
+/* Barre de progression */
+.process__bar {
+  margin-top: 3rem;
+  height: 1px;
+  background: var(--line-soft);
+  position: relative;
+}
+.process__bar-fill {
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+@media (max-width: 900px) {
+  .process__track {
+    flex-direction: column;
+    width: 100%;
+    padding-right: 0;
+    gap: 1.4rem;
+  }
+  .process__step {
+    width: 100%;
+    min-height: 0;
+    padding: 1.8rem;
+  }
+}

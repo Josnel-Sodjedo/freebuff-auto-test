@@ -1,0 +1,283 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: clip;
+  padding-top: var(--nav-h);
+}
+
+/* ---------- Fond ---------- */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.hero__veil {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 90% 60% at 50% 35%, rgba(255, 77, 0, 0.06), transparent 62%),
+    radial-gradient(ellipse 70% 45% at 85% 105%, rgba(233, 228, 218, 0.05), transparent 60%);
+}
+
+/* Aurore ambiante — halos flous qui dérivent lentement */
+.hero__aurora {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  will-change: opacity;
+}
+.hero__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  mix-blend-mode: screen;
+  will-change: transform;
+  opacity: 0.55;
+}
+.hero__orb--1 {
+  width: 46vmax;
+  height: 46vmax;
+  left: -14%;
+  top: -20%;
+  background: radial-gradient(circle, rgba(255, 77, 0, 0.3), transparent 62%);
+}
+.hero__orb--2 {
+  width: 38vmax;
+  height: 38vmax;
+  right: -16%;
+  top: 6%;
+  background: radial-gradient(circle, rgba(233, 228, 218, 0.17), transparent 62%);
+}
+.hero__orb--3 {
+  width: 34vmax;
+  height: 34vmax;
+  left: 22%;
+  bottom: -28%;
+  background: radial-gradient(circle, rgba(255, 122, 62, 0.2), transparent 62%);
+}
+
+/* Étincelles au clic */
+.hero__spark {
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(255, 77, 0, 0.8);
+  pointer-events: none;
+  z-index: 4;
+  will-change: transform, opacity;
+}
+
+/* Braises qui montent */
+.hero__embers {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  will-change: opacity;
+}
+.hero__ember {
+  position: absolute;
+  bottom: -8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px rgba(255, 77, 0, 0.75);
+  animation-name: ember-rise;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+}
+@keyframes ember-rise {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-52vh) translateX(2.5vw) scale(0.9);
+  }
+  92% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-104vh) translateX(-2vw) scale(0.7);
+    opacity: 0;
+  }
+}
+
+/* Halo suiveur de curseur */
+.hero__spotlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 46vmin;
+  height: 46vmin;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 122, 62, 0.16), transparent 60%);
+  mix-blend-mode: screen;
+  opacity: 0;
+  will-change: transform;
+}
+@media (hover: hover) and (pointer: fine) {
+  .hero__spotlight {
+    opacity: 1;
+  }
+}
+
+/* ---------- Contenu ---------- */
+.hero__content {
+  position: relative;
+  z-index: 1;
+  will-change: transform, opacity;
+}
+
+.hero__title {
+  position: relative;
+  font-size: clamp(2.6rem, 8vw, 11rem);
+  will-change: transform;
+}
+.hero__line {
+  display: block;
+  overflow: hidden;
+  padding-block: 0.02em;
+}
+.hero__line-inner {
+  display: inline-block;
+  will-change: transform;
+}
+.hero__letter {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* Mot « MONDES » — dégradé molten animé */
+.hero__grad {
+  display: inline-block;
+  color: transparent;
+  background: linear-gradient(
+    100deg,
+    var(--paper) 18%,
+    var(--accent) 40%,
+    #ffb38a 50%,
+    var(--accent) 60%,
+    var(--paper) 82%
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: grad-shift 4.5s ease-in-out infinite;
+}
+@keyframes grad-shift {
+  0%,
+  100% {
+    background-position: 0% 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+}
+
+.hero__period {
+  position: relative;
+  color: var(--accent);
+}
+.hero__period::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 72%;
+  width: 0.14em;
+  height: 0.14em;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: translate(-50%, -50%);
+  animation: period-ping 2.6s ease-out infinite;
+}
+@keyframes period-ping {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 77, 0, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 0.32em rgba(255, 77, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 77, 0, 0);
+  }
+}
+
+.hero__ember--paper {
+  background: var(--paper);
+  box-shadow: 0 0 10px rgba(233, 228, 218, 0.7);
+}
+
+/* ---------- Pied de hero ---------- */
+.hero__foot {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2.5rem;
+  margin-top: clamp(3rem, 9vh, 6.5rem);
+  padding-bottom: 2.6rem;
+}
+.hero__sub {
+  max-width: 46ch;
+  color: var(--muted);
+  font-size: clamp(0.92rem, 1.35vw, 1.1rem);
+  font-weight: 300;
+  line-height: 1.7;
+}
+.hero__scroll {
+  display: flex;
+  align-items: center;
+  gap: 0.95rem;
+  font-size: 0.64rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.hero__scroll-line {
+  position: relative;
+  width: 1px;
+  height: 54px;
+  background: var(--line);
+  overflow: hidden;
+}
+.hero__scroll-line .scrollline {
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 760px) {
+  .hero {
+    justify-content: flex-start;
+    padding-top: calc(var(--nav-h) + 3rem);
+  }
+  .hero__title {
+    font-size: clamp(1.6rem, 8vw, 5rem);
+  }
+  .hero__orb--1 {
+    width: 90vmax;
+    height: 90vmax;
+  }
+  .hero__orb--2,
+  .hero__orb--3 {
+    width: 70vmax;
+    height: 70vmax;
+  }
+  .hero__foot {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.8rem;
+    margin-top: clamp(2.5rem, 7vh, 4rem);
+  }
+  .hero__scroll {
+    display: none;
+  }
+}

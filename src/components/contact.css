@@ -1,0 +1,73 @@
+.contact {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: clip;
+  border-top: 1px solid var(--line-soft);
+}
+
+.contact__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2.6rem;
+  padding-block: 6rem;
+}
+
+.contact__title {
+  font-size: clamp(2.6rem, 7.5vw, 8rem);
+  max-width: 14ch;
+}
+.contact__title-line {
+  display: block;
+}
+.contact__title-line--2 {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(233, 228, 218, 0.6);
+}
+
+.contact__mail {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.6rem, 3.4vw, 3rem);
+  color: var(--ink);
+  position: relative;
+  width: fit-content;
+}
+.contact__mail::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.08em;
+  height: 1px;
+  width: 100%;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s var(--ease-out);
+}
+.contact__mail:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.contact__cta {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+  flex-wrap: wrap;
+}
+.contact__note {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@media (max-width: 760px) {
+  .contact__title {
+    font-size: clamp(1.6rem, 8.5vw, 8rem);
+  }
+}

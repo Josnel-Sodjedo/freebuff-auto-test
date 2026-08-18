@@ -1,0 +1,60 @@
+.pre {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: var(--paper);
+  color: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+}
+
+.pre__inner {
+  position: relative;
+  width: min(100% - 3rem, 1600px);
+  margin-inline: auto;
+  padding: 2rem;
+}
+
+.pre__mask {
+  display: block;
+  overflow: hidden;
+}
+
+.pre__kayo {
+  display: inline-block;
+  font-size: clamp(3.5rem, 12vw, 9rem);
+  color: var(--bg);
+  letter-spacing: -0.02em;
+  will-change: transform;
+}
+
+.pre__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1.5rem;
+  margin-top: 1.1rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(10, 10, 11, 0.55);
+}
+.pre__num {
+  font-weight: 500;
+  color: var(--bg);
+  white-space: nowrap;
+}
+
+.pre__bar {
+  position: absolute;
+  left: 2rem;
+  right: 2rem;
+  bottom: 1.6rem;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  will-change: transform;
+}
